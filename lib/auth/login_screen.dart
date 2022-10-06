@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_using_getx/auth/second_screen.dart';
 import 'package:flutter_project_using_getx/consts/colors.dart';
+import 'package:flutter_project_using_getx/core/view_model/auth_view_model.dart';
 import 'package:flutter_project_using_getx/widgets/custom_button.dart';
 import 'package:flutter_project_using_getx/widgets/custom_button_social.dart';
 import 'package:flutter_project_using_getx/widgets/custom_text_form_field.dart';
@@ -8,7 +8,7 @@ import 'package:flutter_project_using_getx/widgets/custom_text.dart';
 import 'package:get/get.dart';
 
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends GetWidget<AuthViewModel>{
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -68,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                   text: "SIGN IN",
                   onPressed: (){
                    // Navigator.push(context, MaterialPageRoute(builder: (cn)=>SecondScreen()));
-                    Get.to(SecondScreen());
+                   //  Get.to(SecondScreen());
                   }
               ),
               const SizedBox(height: 20,),
@@ -85,7 +85,10 @@ class LoginScreen extends StatelessWidget {
                CustomButtonSocial(
                  text: "Sign In with Google",
                  imageName: "assets/images/google.png",
-                 onPressed: () {  },),
+                 onPressed: () {
+
+                   controller.googleSignInMethod();
+                 },),
 
 
 
